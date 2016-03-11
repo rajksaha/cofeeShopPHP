@@ -210,7 +210,7 @@ $boy=get_boy($boy_no);
     $final_dis=get_final_discount($total);
      $data.= "<tr><td ></td><td ></td><td>-Special Discount</td><td >$final_dis</td><td id='total_discount'>0</td></tr>";
 	 $data.= "<tr><td ></td><td ></td><td>+ VAT</td><td ></td><td id='total_vat'>$vat</td></tr>";
-     $data.="<tr><th>&nbsp;&nbsp;&nbsp;</th><th></th><th></th><th>Ammount Due</th><th id='final_am'>$totalDue</th></tr>";
+     $data.="<tr><th>&nbsp;&nbsp;&nbsp;</th><th></th><th style='display: none' id='amountWithOutVat'>$total</th><th>Ammount Due</th><th id='final_am'>$totalDue</th></tr>";
     echo $data;
 }
    

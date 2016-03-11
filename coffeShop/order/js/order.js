@@ -99,11 +99,14 @@ $('.main_menu').live('click', function() {
     $('#total_discount').html(result);
     $('#final_am').html('');
 	var finalAmount = id - result;
+	var subToal = finalAmount;
 	var vat = (finalAmount * 15) / 100;
 	finalAmount = finalAmount + vat;
     $('#final_am').html(finalAmount);
     $('#total_vat').html('');
     $('#total_vat').html(vat);
+	$('#amountWithOutVat').html('');
+    $('#amountWithOutVat').html(subToal);
 	//need to change the vat amount
 
 });
@@ -111,7 +114,7 @@ $('.main_menu').live('click', function() {
 
 $('.main_print').live('click', function() {
 var value=$('.dis_final_list').val();
-var final_am=$('#final_am').html();
+var final_am=$('#amountWithOutVat').html();
 var  data='value='+value+'&query='+2+'&final='+final_am;
 $.ajax({
         type: "POST",
@@ -121,7 +124,7 @@ $.ajax({
         success: function(e)
 {
    // alert("lol");
- // window.location.href = "kp_test.php";
+ //window.location.href = "kp_test.php";
    window.location.href = "kichen_print.php";
 }
 });

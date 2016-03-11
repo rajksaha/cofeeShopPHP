@@ -45,6 +45,8 @@ else if($query_no==2){
     $discount=$_POST['value'];
     $final=$_POST['final'];
 
+	echo $final;
+	echo $vat;
    // $user=$_SESSION['user_id'];
     $time = date("Y-m-d H:i:s");
     $date = date("Y-m-d");
@@ -53,7 +55,7 @@ else if($query_no==2){
     $time = date('Y-m-d H:i:s', $timestamp);
     $sql="INSERT INTO `main_order`(`order_id`, `user_id`, `table_id`, `boy_id`,`discount_rate`, `total`,`date`,`time`) VALUES ($order_id,$user,$table_id,$boy_id,$discount,$final,'$date','$time')";
    $done= mysql_query($sql);
-   echo $sql;
+   //echo $sql;
    if($done){
      //  $_SESSION['user_id']=1;
       // $_SESSION['order']=-1;
@@ -66,6 +68,8 @@ else if($query_no==2){
        mysql_query("UPDATE `tab` set `cur_order`=$order_id WHERE id=$table_id");
    }
    }
+   
+   
    
 }else if($query_no==3){
     $id=$_POST['id'];

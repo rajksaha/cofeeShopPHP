@@ -47,7 +47,7 @@
 		
 		
 		
-		<input type="submit" value="log in" class="trust_me" style='display: none'>
+		<input type="submit" value="log in" class="trust_me">
 
 	</form>
 

@@ -10,6 +10,7 @@ session_start();
     
     $query=  mysql_query("select * from sub_order where order_id=$order");
     
+	 $total=0;
     while($row=  mysql_fetch_array($query)){
     	// $sub_id=$row['id'];
     	$product_id=$row['product_id'];
@@ -19,8 +20,21 @@ session_start();
     	$price=$qnt_b*$pro_price;
     	$total=$total+$price;
     	$str="($pro_price)$qnt_b";
-    	echo ".$product_name."-".$str - $price";
+    	echo "$product_name - $str - $price";
     	echo "<br>";
     
     }
+	
+	$final=get_final_due($order);
+	$final_dis=  $total-$final;
+	$vat = ($final * 15) / 100 ;
+	$finalWithVat = $final + $vat;
+	
+	echo "final - $final <br>";
+	echo "Sub Total - $total <br>";
+	echo "Discount - $final_dis <br>";
+	echo "Vat - $vat <br>";
+	echo "Final - $finalWithVat <br> $order";
+	
+	
 ?>
